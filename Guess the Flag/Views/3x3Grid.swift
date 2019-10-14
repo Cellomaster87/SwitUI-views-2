@@ -9,36 +9,19 @@
 import SwiftUI
 
 /// **Test**: create a 3x3 grid!
-/// This is very buggy
-var counter = 1
-
 struct _3x3Grid: View {
     var body: some View {
         VStack {
-            ForEach(0 ..< 3) { _ in
+            ForEach(0 ..< 3) { i in
                 HStack {
-                    ForEach(0 ..< 3) { _ in
-                        self.createText()
-                            .frame(width: 10, height: 10, alignment: .center)
+                    ForEach(0 ..< 3) { j in
+                        Text("Square \(1 + (i * 3) + j)")
                             .padding()  
                             .border(Color.black, width: 4)
                     }
                 }
             }
         }
-    }
-}
-
-extension _3x3Grid {
-    func createText() -> some View {
-        if counter > 9 {
-            counter = 1
-        }
-        
-        let text = Text("\(counter)")
-        counter += 1
-        
-        return text
     }
 }
 
